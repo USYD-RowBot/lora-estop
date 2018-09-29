@@ -55,8 +55,8 @@ const byte LED = 13; //Status LED is on pin 13
 // Message Protocol Config
 const int MSG_LEN = 1; // the length of the message to send
 const int MAX_RAND = 256; // the max value (exclusive) for the challenge code
-const int TIMEOUT = 100; // the watchdog timeout in milliseconds
-const int PAUSE_TIME = 10; // the downtime between transmissions
+const int TIMEOUT = 500; // the watchdog timeout in milliseconds
+const int PAUSE_TIME = 500; // the downtime between transmissions
 
 int packetCounter = 0; //Counts the number of packets sent
 
@@ -125,12 +125,15 @@ void loop()
       }
       else { //* the code checks out, remain active
         if(relayState != ON) { //* If inactive i.e. Safe
-          relayOn(&relayState) //* Set to active
+          relayOn(&relayState); //* Set to active
         }
       }
 
       Serial.print("Got reply: ");
-      Serial.print((char*)buf);
+      char outVal[4];
+      sprintf(outVal, "%3d",buf[0]);
+      Serial.print(outVal);
+//      Serial.print("%3i",(char*)buf[0]);
       Serial.print(" RSSI: ");
       Serial.print(rf95.lastRssi(), DEC);
       Serial.println();

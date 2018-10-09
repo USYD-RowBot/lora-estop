@@ -84,28 +84,28 @@ void loop()
       digitalWrite(LED, HIGH); //Turn on status LED
       timeSinceLastPacket = millis(); //Timestamp this packet
 
-      Serial.print("Got message: ");
-      Serial.print(int(buf[0]));
-      Serial.print("Message Len: ");
-      Serial.print(sizeof(buf));
-      Serial.print(" RSSI: ");
-      Serial.print(rf95.lastRssi(), DEC);
-      Serial.println();
+//      Serial.print("Got message: ");
+//      Serial.print(int(buf[0]));
+//      Serial.print("Message Len: ");
+//      Serial.print(sizeof(buf));
+//      Serial.print(" RSSI: ");
+//      Serial.print(rf95.lastRssi(), DEC);
+//      Serial.println();
 
       // Send a reply
       // char toSend[50];
       // sprintf(toSend, "And hello back. Counter: %d", packetCounter++);
-      char toSend[MSG_LEN];
-      buf[1] = char(0);
-      sprintf(toSend, buf);
+      char toSend[] = {buf[0], '\0'};
+//      buf[1] = char(0);
+//      sprintf(toSend, buf);
       rf95.send(toSend, sizeof(toSend));
 
       rf95.waitPacketSent();
-      Serial.println("Sent a reply");
+//      Serial.println("Sent a reply");
     }
     else
     {
-      Serial.println("recv failed");
+//      Serial.println("recv failed");
     }
   }
 

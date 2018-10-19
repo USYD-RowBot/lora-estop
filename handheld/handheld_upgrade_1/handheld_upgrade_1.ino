@@ -1,7 +1,7 @@
 /* Handheld unit code for USYD RowBot's 2018 WAM-V Remote emergency stop
  * 
  * This code assumes that the emergency stop button is connected in a loop from +VCC to Digital Pin 10 using the normally-closed connection.
- * A pull-down resistor and debounce capacitor for Pin 10 are also expected.
+ * A pull-down resistor and debounce capacitor for Pin 10 are also expected. 75k pull-down worked well in testing.
  * 
  * This code implements the updated stop protocol from 2018-10-10 and should be paired with compatible OVC code such as updated_protocol_1.ino
  * 

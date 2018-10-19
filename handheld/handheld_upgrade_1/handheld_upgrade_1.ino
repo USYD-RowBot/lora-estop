@@ -1,7 +1,7 @@
 /* Handheld unit code for USYD RowBot's 2018 WAM-V Remote emergency stop
  * 
- * This code assumes that the emergency stop button is connected in a loop from +VCC to Digital Pin 12 using the normally-closed connection.
- * A pull-down resistor and debounce capacitor for Pin 12 are also expected.
+ * This code assumes that the emergency stop button is connected in a loop from +VCC to Digital Pin 10 using the normally-closed connection.
+ * A pull-down resistor and debounce capacitor for Pin 10 are also expected.
  * 
  * This code implements the updated stop protocol from 2018-10-10 and should be paired with compatible OVC code such as updated_protocol_1.ino
  * 
@@ -18,7 +18,7 @@ RH_RF95 rf95(A5, 7);
 
 const byte LED = 13; //Status LED is on pin 13
 
-const byte BUTTON = 12; // E-Stop button input is on pin 12
+const byte BUTTON = 10; // E-Stop button input is on pin 12
 
 const byte STOPCHAR = '!'; // The character to send to trigger an emergency stop condition
 

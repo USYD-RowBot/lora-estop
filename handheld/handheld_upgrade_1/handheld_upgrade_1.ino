@@ -16,7 +16,9 @@
 //On the SparkFun ProRF the RFM CS pin is connected to pin A5, the RFM interrupt is on pin 7
 RH_RF95 rf95(A5, 7);
 
-const byte LED = 13; //Status LED is on pin 13
+//const byte LED = 13; //Status LED is on pin 13
+const byte LED = 9; //Status LED is on pin 9
+
 
 const byte BUTTON = 10; // E-Stop button input is on pin 12
 
